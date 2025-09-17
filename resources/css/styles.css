@@ -1,0 +1,149 @@
+/* === Variáveis (cores, espaçamentos) === */
+:root {
+  --red: #c00;
+  --red-100: #ffcccc;
+  --text: #333;
+  --white: #fff;
+  --bg-dark: #333;
+  --container-max: 1100px;
+}
+
+/* === Reset/BASE === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: #fff;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--red-100);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 { color: var(--red); }
+
+/* === Topbar === */
+.topbar {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.nav-links ul { list-style: none; display: flex; }
+.nav-links ul li { margin-left: 25px; }
+.nav-links a {
+  color: var(--white);
+  font-weight: bold;
+  transition: color .3s ease;
+}
+.nav-links a:hover { color: var(--red-100); }
+
+/* === Slide / Hero === */
+.slide {
+  height: 60vh;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+
+  /* Substitua a URL abaixo pela imagem desejada */
+  background:
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('https://images.pexels.com/photos/11094895/pexels-photo-11094895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    no-repeat center center/cover;
+}
+.slide-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+.slide-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* === Conteúdo Principal === */
+main section { padding: 60px 0; }
+
+#sobre-mst h2, #localizacao h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+#sobre-mst p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* === Seção do Mapa === */
+.mapa-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.mapa-info { flex: 1; }
+.mapa-info h3 { font-size: 1.8rem; margin-bottom: 15px; }
+.mapa-info p { font-size: 1.1rem; margin-bottom: 10px; }
+
+.mapa-embed { flex: 1.5; height: 400px; }
+.mapa-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+/* === Rodapé === */
+footer {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* === Responsividade === */
+@media (max-width: 900px) {
+  .slide { height: 50vh; }
+  .slide-content h1 { font-size: 2.4rem; }
+}
+
+@media (max-width: 768px) {
+  .mapa-container { flex-direction: column; }
+  .slide-content h1 { font-size: 2.2rem; }
+  .topbar .container { flex-direction: column; gap: 10px; }
+  .nav-links ul { flex-wrap: wrap; gap: 12px; }
+  .nav-links ul li { margin-left: 0; }
+}
+
+/* === Preferências de movimento reduzido === */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
