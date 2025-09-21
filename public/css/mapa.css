@@ -1,82 +1,60 @@
-/* ====== Variáveis de tema ====== */
+/* ====== Variáveis de tema (mantidas) ====== */
 :root{
-  --mst-red: #c00;         /* Vermelho principal MST */
-  --mst-red-100: #ffcccc;  /* Vermelho claro para hover/fundos */
+  --mst-red: #c00;
+  --mst-red-100: #ffcccc;
   --text: #333;
   --muted: #6c757d;
   --border: #dee2e6;
-  --shadow: 0 4px 16px rgba(0,0,0,.12);
 }
 
 /* ====== Base ====== */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  color: var(--text);
-  background: #fff;
-}
+body { color: var(--text); background: #fff; margin: 0; }
 a { text-decoration: none; }
 
-/* ====== Navbar (Topbar MST) ====== */
+/* ====== Navbar (mantida) ====== */
 .navbar {
   background-color: var(--mst-red) !important;
-  backdrop-filter: saturate(150%) blur(4px);
 }
-.navbar .navbar-brand img {
-  height: 80px;
-}
-.navbar .btn {
-  font-weight: 600;
-  border-radius: .35rem;
-  transition: all .3s ease;
-}
+.logo-escola { height: 80px; }
+.navbar .btn { font-weight: 600; border-radius: .35rem; }
 .navbar .btn-light {
-  background: #fff;
-  color: var(--mst-red);
+  background: #fff; color: var(--mst-red);
 }
 .navbar .btn-light:hover {
-  background: var(--mst-red-100);
-  color: var(--mst-red);
+  background: var(--mst-red-100); color: var(--mst-red);
 }
 .navbar .btn-outline-light {
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #fff; color: #fff; background: transparent;
 }
 .navbar .btn-outline-light:hover {
-  background: #fff;
-  color: var(--mst-red);
+  background: #fff; color: var(--mst-red);
 }
 
-/* ====== Container padrão das páginas do mapa ====== */
+/* ====== Títulos de página (mantidos) ====== */
 .page-title{
   display: flex; align-items:center; justify-content:space-between;
   gap: 1rem; margin-bottom: 1.25rem;
 }
-.page-title h1, .page-title h2 {
-  margin: 0;
-  color: var(--mst-red);
-}
+.page-title h1, .page-title h2 { margin: 0; color: var(--mst-red); }
 
-/* ====== MAPA ====== */
+/* ====== MAPA (mesmas dimensões) ====== */
 .map {
   height: 600px; width: 100%;
   border: 2px solid var(--mst-red);
   border-radius: .5rem;
-  box-shadow: var(--shadow);
-  overflow: hidden;
   background: #f8f9fa;
+  overflow: hidden;
 }
-
-/* Responsivo para telas menores */
 @media (max-width: 768px){
   .map { height: 420px; }
 }
 
-/* ====== OpenLayers POPUP ====== */
+/* ====== OpenLayers POPUP (mantido, sem sombras) ====== */
 .ol-popup {
   position: absolute;
   background-color: #fff;
-  box-shadow: var(--shadow);
   padding: 14px 16px;
   border-radius: .75rem;
   border: 2px solid var(--mst-red);
@@ -89,7 +67,7 @@ a { text-decoration: none; }
 .ol-popup:after, .ol-popup:before {
   top: 100%;
   border: solid transparent;
-  content: " ";
+  content: "";
   height: 0; width: 0; position: absolute; pointer-events: none;
 }
 .ol-popup:after {
@@ -100,10 +78,7 @@ a { text-decoration: none; }
   border-top-color: var(--mst-red);
   border-width: 11px; left: 48px; margin-left: -11px;
 }
-.ol-popup h5, .ol-popup h6 {
-  margin: 0 0 .4rem 0;
-  color: var(--mst-red);
-}
+.ol-popup h5, .ol-popup h6 { margin: 0 0 .4rem 0; color: var(--mst-red); }
 .ol-popup p { margin: 0 0 .25rem 0; color: var(--text); }
 .ol-popup .small { color: var(--muted); }
 .ol-popup .btn {
@@ -118,7 +93,7 @@ a { text-decoration: none; }
   color: var(--mst-red);
 }
 
-/* Botão de fechar popup */
+/* Botão de fechar popup (mantido) */
 .ol-popup-closer {
   position: absolute; top: 6px; right: 8px;
   text-decoration: none; background: transparent; border: 0;
@@ -126,62 +101,63 @@ a { text-decoration: none; }
 }
 .ol-popup-closer:hover { color: var(--mst-red); }
 
-/* ====== Painéis ====== */
+/* ====== Painéis (mantidos, sem sombra) ====== */
 .panel {
   border: 2px solid var(--mst-red);
   border-radius: .5rem;
   padding: 1rem;
   background: #fff;
-  box-shadow: var(--shadow);
 }
-.panel .panel-title {
-  margin-bottom: .75rem;
-  color: var(--mst-red);
-}
+.panel .panel-title { margin-bottom: .75rem; color: var(--mst-red); }
 
-/* ====== Utilidades ====== */
+/* ====== Utilidades (mantidas) ====== */
 .badge-red { background: var(--mst-red-100); color: var(--mst-red); }
 hr.soft { border-top: 2px solid var(--mst-red); opacity: 1; }
 
-/* ====== Acessibilidade ====== */
+/* ====== Acessibilidade (mantida) ====== */
 @media (prefers-reduced-motion: reduce){
   * { animation: none !important; transition: none !important; }
 }
 
+/* ====== Seções e títulos adicionais (mantidos) ====== */
 #sobre-mst h2, #localizacao h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-size: 2.0rem;         /* levemente menor, mais simples */
+  margin-bottom: 32px;
 }
+#sobre-mst p { margin-bottom: 1rem; text-align: justify; }
+h1, h2, h3 { color: var(--mst-red); }
 
-#sobre-mst p {
-  margin-bottom: 1rem;
-  text-align: justify;
+/* ====== Slide (mantido, só sem comentários longos) ====== */
+
+.slide-content h1 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+.slide-content p { font-size: 1.2rem; max-width: 600px; }
+@media (max-width: 576px){
+  .slide-content h1 { font-size: 2rem; }
+  .slide-content p { font-size: 1rem; }
 }
-h1, h2, h3 {
-  color: #c00; /* Vermelho principal */
-}
-/* --- Slide (Imagem de Destaque) --- */
 .slide {
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/11094895/pexels-photo-11094895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
-    /* ↑↑↑ SUBSTITUA ESTE URL PELA IMAGEM QUE VOCÊ DESEJA USAR ↑↑↑ */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
+  position: relative;
+  text-align: center; /* centraliza conteúdo absoluto também */
 }
 
-.slide-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #fff;
+.slide-img {
+  width: 80%;   /* 50% do tamanho original */
+  height: auto; /* mantém proporção */
+  display: block;
+  margin: 0 auto; /* centraliza na página */
 }
 
-.slide-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;}
+  .slide-content h1 {
+  font-size: 7rem;   /* aumenta o tamanho (pode ajustar: 3rem, 5rem, etc.) */
+  font-weight: bold; /* deixa mais forte */
+  color: #fff;       /* mantém branco sobre a imagem */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* sombra pra destacar */
 }
